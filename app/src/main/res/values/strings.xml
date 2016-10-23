@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">EjemplosPractica4</string>
+    <string name="ic_add">Añadir</string>
+    <string name="ic_del">Borrar</string>
+    <string name="ic_about">Acerca de...</string>
+    <string-array name="valores_array">
+        <item>Azul</item>
+        <item>Negro</item>
+        <item>Blanco</item>
+        <item>Amarillo</item>
+        <item>Verde</item>
+    </string-array>
+</resources>
