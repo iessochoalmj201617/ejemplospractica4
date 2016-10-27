@@ -1,9 +1,12 @@
 package net.iessochoa.joseantoniolopez.ejemplospractica4;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         //************SPINNER******************
         sp_array=(Spinner)findViewById(R.id.sp_array);
 
-        ArrayAdapter<String> adaptador =new ArrayAdapter<String>(this,
+        final ArrayAdapter<String> adaptador =new ArrayAdapter<String>(this,
                         android.R.layout.simple_spinner_item, datos);
         adaptador.setDropDownViewResource(
                 android.R.layout.simple_spinner_dropdown_item);
@@ -55,16 +58,62 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
+        //********************************************
         //***********LISTVIEW************************
+        //********************************************
         lvLista=(ListView) findViewById(R.id.lv_Lista);
+        //comentar para que funcione la regeneración de datos
         crearDatos();
         //descomentar para que funcione la regeneración de datos y comentar el anterior
         //crearDatosComprobandoRegeneracion(savedInstanceState);
         adaptadorLista=new AdapterElementos(this,R.layout.item_elemento,al_datos);
         lvLista.setAdapter(adaptadorLista);
+        //Evento de click sobre un elemento de la lista
+        lvLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //Creamos un cuadro de dialogo para que veais como se implementa
+                Elemento elemento=(Elemento)adapterView.getItemAtPosition(i);
+                AlertDialog.Builder dialogo = new AlertDialog.Builder(MainActivity.this);
+                dialogo.setTitle(R.string.title_Aviso);// titulo y mensaje
 
+                dialogo.setMessage(getString(R.string.msg_seleccion)+elemento.getV1()+"-"+elemento.getV2());
+                // agregamos botón Ok y su evento
+                dialogo.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // Qué hacemos en caso ok
+
+                    }
+                });
+                //Si queremos incluir la opción de cancelar
+                /*dialogo.setNegativeButton(android.R.string.no
+                        , new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                // Qué hacemos en caso cancel
+                            }
+                        });*/
+                dialogo.show();
+            }
+        });
+        //Evento para un long click
+        lvLista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(MainActivity.this, String.format(getString(R.string.msg_PulsacionLongLinsta), i),Toast.LENGTH_SHORT).show();
+
+                //Importante, para que no ejecute después el evento click,  tiene que devolver true
+                return true;
+            }
+        });
 
     }
+
+    /**
+     * Ejecutamos este método para comprobar que ocurre cuando no se controla la recreación de la
+     * Activity
+     */
     private void crearDatos() {
         al_datos=new ArrayList<Elemento>();
             String v1 = "titulo";
@@ -73,8 +122,13 @@ public class MainActivity extends AppCompatActivity {
             for (int i = 0; i <= 10; i++) {
                 al_datos.add(new Elemento(v1 + i, v2 + i, v3 + i));
             }
-
     }
+
+    /**
+     * Nos permite comprobar previamente si estamos dentro de una recreación de la Activity
+     * como probando si el Bundle que trae onCreate es null
+     * @param savedInstanceState: es el parámetro que viene en onCreate
+     */
     private void crearDatosComprobandoRegeneracion(Bundle savedInstanceState) {
         al_datos=new ArrayList<Elemento>();
         //si es la primera vez que se crea la activity

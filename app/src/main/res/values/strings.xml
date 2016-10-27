@@ -3,6 +3,9 @@
     <string name="ic_add">Añadir</string>
     <string name="ic_del">Borrar</string>
     <string name="ic_about">Acerca de...</string>
+    <string name="title_Aviso">Aviso</string>
+    <string name="msg_seleccion">Has seleccionado .....</string>
+    <string name="msg_PulsacionLongLinsta">Pulsación larga sobre el elemento: %d</string>
     <string-array name="valores_array">
         <item>Azul</item>
         <item>Negro</item>
