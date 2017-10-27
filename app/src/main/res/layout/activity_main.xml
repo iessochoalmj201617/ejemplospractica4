@@ -19,18 +19,21 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/sp_array" />
+        android:id="@+id/sp_array"
+        android:contentDescription="Spinner que le pasamos los datos mediante un array de string creado desde código"/>
 
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/sp_conArrayString" />
+        android:id="@+id/sp_conArrayString"
+        android:contentDescription="Este spinner lo creamos con los datos creados en string.xml"/>
 
     <TextView
         android:text="ListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView" />
+        android:id="@+id/textView"
+        android:contentDescription="La siguiente listview le añadimos los datos por códgo y mediante el menu podemos añadir y eliminar elementos. Comprobaremos que si giramos el movil perdemos los datos si no se han guardado previamente. Para ello tienes que descomentar el las línea que te dice en mainActivity"/>
 
     <ListView
         android:layout_width="match_parent"

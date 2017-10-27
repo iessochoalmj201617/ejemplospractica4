@@ -15,6 +15,12 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/**
+ * Este ejemplo nos permitira ver como se utilizan los menús, spinner y listview
+ * Veremos como cuando cambiamos la orientación del dispositivo, si no tomamos las medidas
+ * adecuadas, perdemos los datos del usuario.
+ */
+
 public class MainActivity extends AppCompatActivity {
     public static String STATE_LISTA_ELEMENTOS = "net.iessochoa.joseantoniolopez.ejemplospractica4.main.lista_elementos";
     //datos para el spinner
@@ -50,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent,
                                                android.view.View v, int position, long id) {
                         String ele=(String) parent.getItemAtPosition(position);
-                        Toast.makeText(getApplicationContext(),"Has seleccionado: "+ ele,Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),getString(R.string.msg_seleccion2)+ ele,Toast.LENGTH_LONG).show();
 
                     }
 
@@ -63,9 +69,9 @@ public class MainActivity extends AppCompatActivity {
         //********************************************
         lvLista=(ListView) findViewById(R.id.lv_Lista);
         //comentar para que funcione la regeneración de datos
-        crearDatos();
+        //crearDatos();
         //descomentar para que funcione la regeneración de datos y comentar el anterior
-        //crearDatosComprobandoRegeneracion(savedInstanceState);
+        crearDatosComprobandoRegeneracion(savedInstanceState);
         adaptadorLista=new AdapterElementos(this,R.layout.item_elemento,al_datos);
         lvLista.setAdapter(adaptadorLista);
         //Evento de click sobre un elemento de la lista
@@ -111,8 +117,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Ejecutamos este método para comprobar que ocurre cuando no se controla la recreación de la
-     * Activity
+     * Ejecutamos este método para comprobar que ocurre cuando no se controla
+     * la recreación de la  Activity
      */
     private void crearDatos() {
         al_datos=new ArrayList<Elemento>();
@@ -133,12 +139,13 @@ public class MainActivity extends AppCompatActivity {
         al_datos=new ArrayList<Elemento>();
         //si es la primera vez que se crea la activity
         if(savedInstanceState == null) {//creamos unos datos a mostrar
-            String v1 = "titulo";
+            /*String v1 = "titulo";
             String v2 = "dato";
             String v3 = "Donec ut lorem est. Suspendisse vel porttitor turpis. Aenean gravida elit nec sodales hendrerit. Vivamus non tellus eu sapien malesuada imperdiet. Sed eget diam vitae sem mattis scelerisque. Morbi sed elementum urna. Praesent egestas, nulla sit amet porttitor eleifend";
             for (int i = 0; i <= 10; i++) {
                 al_datos.add(new Elemento(v1 + i, v2 + i, v3 + i));
-            }
+            }*/
+            crearDatos();
         }else {//Venimos de una recreación y recuperamos los datos
             al_datos=savedInstanceState.getParcelableArrayList(STATE_LISTA_ELEMENTOS);
 
