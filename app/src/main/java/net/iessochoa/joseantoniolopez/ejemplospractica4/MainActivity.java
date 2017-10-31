@@ -69,9 +69,10 @@ public class MainActivity extends AppCompatActivity {
         //********************************************
         lvLista=(ListView) findViewById(R.id.lv_Lista);
         //comentar para que funcione la regeneración de datos
-        //crearDatos();
-        //descomentar para que funcione la regeneración de datos y comentar el anterior
-        crearDatosComprobandoRegeneracion(savedInstanceState);
+        crearDatos();
+        //descomentar para que funcione la regeneración de datos y comentar el anterior y tambien
+        //descomentar el método onSaveInstanceState
+//        crearDatosComprobandoRegeneracion(savedInstanceState);
         adaptadorLista=new AdapterElementos(this,R.layout.item_elemento,al_datos);
         lvLista.setAdapter(adaptadorLista);
         //Evento de click sobre un elemento de la lista
@@ -136,17 +137,12 @@ public class MainActivity extends AppCompatActivity {
      * @param savedInstanceState: es el parámetro que viene en onCreate
      */
     private void crearDatosComprobandoRegeneracion(Bundle savedInstanceState) {
-        al_datos=new ArrayList<Elemento>();
+        //al_datos=new ArrayList<Elemento>();
         //si es la primera vez que se crea la activity
         if(savedInstanceState == null) {//creamos unos datos a mostrar
-            /*String v1 = "titulo";
-            String v2 = "dato";
-            String v3 = "Donec ut lorem est. Suspendisse vel porttitor turpis. Aenean gravida elit nec sodales hendrerit. Vivamus non tellus eu sapien malesuada imperdiet. Sed eget diam vitae sem mattis scelerisque. Morbi sed elementum urna. Praesent egestas, nulla sit amet porttitor eleifend";
-            for (int i = 0; i <= 10; i++) {
-                al_datos.add(new Elemento(v1 + i, v2 + i, v3 + i));
-            }*/
+            //añadimos unos cuantos datos de prueba
             crearDatos();
-        }else {//Venimos de una recreación y recuperamos los datos
+        }else {//Venimos de una recreación ya que tenemos datos en el bundle y recuperamos los datos
             al_datos=savedInstanceState.getParcelableArrayList(STATE_LISTA_ELEMENTOS);
 
         }
@@ -168,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
                 adaptadorLista.delElemento();
                 return true;
             case R.id.action_acercade:
-                Toast.makeText(this,"Acerca de..practica 4",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.acercade,Toast.LENGTH_SHORT).show();
 
                 return true;
             default:
@@ -179,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
     //Descomentar para no perder los datos cuando hay una recreación de la actividad cuando
     //por ejemplo se cambia la orientación
 
-   /* @Override
+    /*@Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         //Guardamos la lista de elementos

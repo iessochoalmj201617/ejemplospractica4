@@ -7,6 +7,7 @@
     <string name="msg_seleccion">Has seleccionado .....</string>
     <string name="msg_PulsacionLongLinsta">Pulsación larga sobre el elemento: %d</string>
     <string name="msg_seleccion2">Has seleccionado:</string>
+    <string name="acercade">Acerca de..practica 4</string>
     <string-array name="valores_array">
         <item>Azul</item>
         <item>Negro</item>
