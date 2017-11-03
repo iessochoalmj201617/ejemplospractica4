@@ -21,6 +21,7 @@
         android:id="@+id/sp_array"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:contentDescription="Spinner que le pasamos los datos mediante un array de string creado desde código" />
 
     <Spinner
@@ -40,5 +41,6 @@
         android:id="@+id/lv_Lista"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_elemento" />
+        tools:listitem="@layout/item_elemento"
+        android:divider="@null"/>
 </LinearLayout>

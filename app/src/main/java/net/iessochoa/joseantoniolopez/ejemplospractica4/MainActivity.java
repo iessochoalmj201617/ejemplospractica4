@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     ListView lvLista;
     //datos para la  lista
     ArrayList<Elemento> al_datos;
-    AdapterElementos adaptadorLista;
+    ElementosAdapter adaptadorLista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         //descomentar para que funcione la regeneración de datos y comentar el anterior y tambien
         //descomentar el método onSaveInstanceState
 //        crearDatosComprobandoRegeneracion(savedInstanceState);
-        adaptadorLista=new AdapterElementos(this,R.layout.item_elemento,al_datos);
+        adaptadorLista=new ElementosAdapter(this,R.layout.item_elemento,al_datos);
         lvLista.setAdapter(adaptadorLista);
         //Evento de click sobre un elemento de la lista
         lvLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
