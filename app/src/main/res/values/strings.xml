@@ -8,6 +8,10 @@
     <string name="msg_PulsacionLongLinsta">Pulsación larga sobre el elemento: %d</string>
     <string name="msg_seleccion2">Has seleccionado:</string>
     <string name="acercade">Acerca de..practica 4</string>
+    <string name="lista_sin_reconstruci_n">Lista sin Reconstrución</string>
+    <string name="lista_con_reconstrucci_n">Lista Con Reconstrucción</string>
+    <string name="anyadir">Añadimos elemento</string>
+    <string name="eliminar">Eliminamos elemento</string>
     <string-array name="valores_array">
         <item>Azul</item>
         <item>Negro</item>

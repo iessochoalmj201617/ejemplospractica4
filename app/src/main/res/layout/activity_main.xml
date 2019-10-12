@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="net.iessochoa.joseantoniolopez.ejemplospractica4.MainActivity"
     tools:menu="@menu/menu_main">
 
-    <TextView
+
+    <Button
+        android:id="@+id/btnListaConRecostruccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Spinner" />
+        android:onClick="accionBotones"
+        android:text="@string/lista_con_reconstrucci_n"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSinReconstruccion" />
 
-    <Spinner
-        android:id="@+id/sp_array"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btnSpinner"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="accionBotones"
+        android:text="Spinner"
+        app:layout_constraintBottom_toTopOf="@+id/btnSinReconstruccion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        android:contentDescription="Spinner que le pasamos los datos mediante un array de string creado desde código" />
-
-    <Spinner
-        android:id="@+id/sp_conArrayString"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btnSinReconstruccion"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="Este spinner lo creamos con los datos creados en string.xml" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:contentDescription="La siguiente listview le añadimos los datos por códgo y mediante el menu podemos añadir y eliminar elementos. Comprobaremos que si giramos el movil perdemos los datos si no se han guardado previamente. Para ello tienes que descomentar el las línea que te dice en mainActivity"
-        android:text="ListView" />
-
-    <ListView
-        android:id="@+id/lv_Lista"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/item_elemento"
-        android:divider="@null"/>
-</LinearLayout>
+        android:onClick="accionBotones"
+        android:text="@string/lista_sin_reconstruci_n"
+        app:layout_constraintBottom_toTopOf="@+id/btnListaConRecostruccion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSpinner" />
+</androidx.constraintlayout.widget.ConstraintLayout>
