@@ -17,6 +17,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import net.iessochoa.joseantoniolopez.ejemplospractica4.viewmodel.ListaViewModelActivity;
+
 import java.util.ArrayList;
 
 /**
@@ -47,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnListaConRecostruccion:
                 claseActivity=ListaConReconstruccionActivity.class;
                 break;
+            case R.id.btnViewModel:
+                claseActivity= ListaViewModelActivity.class;
         }
         Intent intent;
         intent = new Intent(this, claseActivity);

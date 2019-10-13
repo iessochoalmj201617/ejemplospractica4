@@ -36,7 +36,7 @@ public class ListaConReconstruccionActivity extends AppCompatActivity {
         //********************************************
         //***********LISTVIEW************************
         //********************************************
-        lvLista=(ListView) findViewById(R.id.lv_Lista);
+        lvLista= findViewById(R.id.lv_Lista);
         //si es la primera vez que se crea la activity
         if(savedInstanceState == null) {//creamos unos datos a mostrar
             //añadimos unos cuantos datos de prueba
