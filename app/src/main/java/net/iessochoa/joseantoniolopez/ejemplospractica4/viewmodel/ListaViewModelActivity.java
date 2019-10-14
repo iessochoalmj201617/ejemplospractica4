@@ -19,11 +19,16 @@ import java.util.List;
 /**
  * Esta actividad nos permite ver el uso de la clase ViewModel y LiveData para mantener datos durante
  * el ciclo de vida de la Actividad como parte de los nuevos patrones de diseño propuesto por Google con
- * JetPack. Para ello
+ * JetPack. Podéis leer los consejos de diseño de Google en https://developer.android.com/jetpack/docs/guide
+ * Para ello
  * -crearemos una clase ViewModel que nos permitirá guardar los datos durante la vida
  * de la actividad.
  * -Esta clase se ocupará por nosotros de crear o recuperar los datos en las reconstruciones de la actividad
- * -Además podremos aislar la actividad del manejo de datoss
+ * -Además podremos aislar la actividad del manejo de datos
+ * Aunque parece que se realiza la misma tarea que con onSaveInstanceState, en el siguiente artículo
+ * nos explica las diferencias y cuando es conveniente utilizar uno y otro
+ * https://medium.com/androiddevelopers/viewmodels-persistence-onsaveinstancestate-restoring-ui-state-and-loaders-fc7cc4a6c090
+ * https://developer.android.com/topic/libraries/architecture/saving-states
  */
 public class ListaViewModelActivity extends AppCompatActivity {
     //para crear nuevos datos en la lista
