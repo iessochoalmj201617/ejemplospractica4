@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import net.iessochoa.joseantoniolopez.ejemplospractica4.Elemento;
@@ -48,7 +49,8 @@ public class ListaViewModelActivity extends AppCompatActivity {
         lvLista = (ListView) findViewById(R.id.lv_Lista);
         //creamos el LiveData. Nos permite mantener los datos en la reconstrución. El proveedor se encargará
         //por nosotros de crear uno nuevo o recuperarlo si venimos de una reconstrución
-        liveDataElementosViewModel = ViewModelProviders.of(this).get(LiveDataElementosViewModel.class);
+        //liveDataElementosViewModel = ViewModelProviders.of(this).get(LiveDataElementosViewModel.class);
+        liveDataElementosViewModel= new ViewModelProvider(this).get(LiveDataElementosViewModel.class);
         //le añadimos un observador que nos permitirá actualizar la interfaz de usuario(la lista)
         //si cambian los datos
         liveDataElementosViewModel.getUserList().observe(this, new Observer<List<Elemento>>() {

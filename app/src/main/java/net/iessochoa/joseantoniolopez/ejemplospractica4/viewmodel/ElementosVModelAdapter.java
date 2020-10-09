@@ -31,7 +31,7 @@ public class ElementosVModelAdapter  extends ArrayAdapter<Elemento> {
     }
 
     /**
-     * Nos permite actualizar la lista e indicar al adaptador que reconstrulla la lista
+     * Nos permite actualizar la lista e indicar al adaptador que reconstruya la lista
      * @param alLista
      */
     public void setLista(List<Elemento> alLista) {
