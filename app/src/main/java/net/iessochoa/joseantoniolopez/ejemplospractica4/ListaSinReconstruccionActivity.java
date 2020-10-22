@@ -15,6 +15,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class ListaSinReconstruccionActivity extends AppCompatActivity {
 
@@ -89,7 +90,7 @@ public class ListaSinReconstruccionActivity extends AppCompatActivity {
         String v2 = "dato";
         String v3 = "Donec ut lorem est. Suspendisse vel porttitor turpis. Aenean gravida elit nec sodales hendrerit. Vivamus non tellus eu sapien malesuada imperdiet. Sed eget diam vitae sem mattis scelerisque. Morbi sed elementum urna. Praesent egestas, nulla sit amet porttitor eleifend";
         for (int i = 0; i <= 10; i++) {
-            al_datos.add(new Elemento(v1 + i, v2 + i, v3 + i));
+            al_datos.add(new Elemento(i%2,v1 + i, v2 + i, v3 + i));
         }
     }
 
@@ -104,9 +105,10 @@ public class ListaSinReconstruccionActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId()) {
             case R.id.action_add:
-                adaptadorLista.addElemento(new Elemento("TituloNuevo" + n, "DatoNuevo" + n, "Descripcion Nueva" + n));
+                adaptadorLista.addElemento(new Elemento(0,"TituloNuevo" + n, "DatoNuevo" + n, "Descripcion Nueva" + n));
                 n++;
                 return true;
             case R.id.action_del:

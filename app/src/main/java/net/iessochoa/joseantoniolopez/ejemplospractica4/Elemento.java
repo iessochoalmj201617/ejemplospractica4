@@ -8,14 +8,24 @@ import android.os.Parcelable;
  */
 
 public class Elemento implements Parcelable {
+    private int estado;
     private String v1;
     private String v2;
     private String v3;
 
-    public Elemento(String v1, String v2, String v3) {
+    public Elemento(int estado,String v1, String v2, String v3) {
+        this.estado=estado;
         this.v1 = v1;
         this.v2 = v2;
         this.v3 = v3;
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
     }
 
     public String getV1() {
@@ -42,6 +52,7 @@ public class Elemento implements Parcelable {
         this.v3 = v3;
     }
 //*********************PARCELABLE************************
+
     @Override
     public int describeContents() {
         return 0;
@@ -49,12 +60,14 @@ public class Elemento implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.estado);
         dest.writeString(this.v1);
         dest.writeString(this.v2);
         dest.writeString(this.v3);
     }
 
     protected Elemento(Parcel in) {
+        this.estado = in.readInt();
         this.v1 = in.readString();
         this.v2 = in.readString();
         this.v3 = in.readString();
