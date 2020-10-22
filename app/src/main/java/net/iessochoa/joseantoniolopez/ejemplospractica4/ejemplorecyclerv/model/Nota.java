@@ -1,11 +1,11 @@
 package net.iessochoa.joseantoniolopez.ejemplospractica4.ejemplorecyclerv.model;
 
-public class nota {
+public class Nota {
     int id;
     int tipo;
     String descripcion;
 
-    public nota(int tipo, String descripcion) {
+    public Nota(int tipo, String descripcion) {
         this.id = (int)Math.random()*1000;
         this.tipo = tipo;
         this.descripcion = descripcion;
