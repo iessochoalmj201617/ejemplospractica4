@@ -8,7 +8,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".viewmodel.ListaViewModelActivity"></activity>
+        <activity android:name=".ejemplorecyclerv.RecyclerviewActivity"></activity>
+        <activity android:name=".listaviewmodel.ListaViewModelActivity" />
         <activity
             android:name=".SpinnerActivity"
             android:parentActivityName=".MainActivity">

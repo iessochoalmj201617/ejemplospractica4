@@ -1,25 +1,16 @@
 package net.iessochoa.joseantoniolopez.ejemplospractica4;
 
-import android.content.DialogInterface;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import net.iessochoa.joseantoniolopez.ejemplospractica4.viewmodel.ListaViewModelActivity;
-
-import java.util.ArrayList;
+import net.iessochoa.joseantoniolopez.ejemplospractica4.ejemplorecyclerv.RecyclerviewActivity;
+import net.iessochoa.joseantoniolopez.ejemplospractica4.listaviewmodel.ListaViewModelActivity;
 
 /**
  * Este ejemplo nos permitira ver como se utilizan los menús, spinner y listview
@@ -51,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btnViewModel:
                 claseActivity= ListaViewModelActivity.class;
+            case R.id.btnRecyclerView:
+                claseActivity= RecyclerviewActivity.class;
         }
         Intent intent;
         intent = new Intent(this, claseActivity);

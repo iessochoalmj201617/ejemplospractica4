@@ -19,6 +19,12 @@ public class Elemento implements Parcelable {
         this.v2 = v2;
         this.v3 = v3;
     }
+    public Elemento(String v1, String v2, String v3) {
+        this.estado=estado;
+        this.v1 = v1;
+        this.v2 = v2;
+        this.v3 = v3;
+    }
 
     public int getEstado() {
         return estado;

@@ -1,4 +1,4 @@
-package net.iessochoa.joseantoniolopez.ejemplospractica4.viewmodel;
+package net.iessochoa.joseantoniolopez.ejemplospractica4.listaviewmodel;
 
 import android.app.Application;
 

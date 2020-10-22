@@ -1,4 +1,4 @@
-package net.iessochoa.joseantoniolopez.ejemplospractica4.viewmodel;
+package net.iessochoa.joseantoniolopez.ejemplospractica4.listaviewmodel;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,7 +9,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import net.iessochoa.joseantoniolopez.ejemplospractica4.Elemento;
 import net.iessochoa.joseantoniolopez.ejemplospractica4.R;
