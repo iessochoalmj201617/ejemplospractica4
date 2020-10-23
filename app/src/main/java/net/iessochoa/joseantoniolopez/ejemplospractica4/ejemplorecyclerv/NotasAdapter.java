@@ -19,7 +19,7 @@ import java.util.List;
  * https://www.youtube.com/watch?v=yM7UL-C3gE8
  * https://www.youtube.com/watch?v=0E71FuATqO0
  */
-public class NotasAdapter extends RecyclerView.Adapter {
+public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.NotaViewHolder> {
     // Lista con las notas que vamos a mostrar;
     private List<Nota> mListaNotas; //
     //definimos la interface para el control del click
@@ -46,12 +46,12 @@ public class NotasAdapter extends RecyclerView.Adapter {
     /**
      * Cuando el adaptador va a mostrar un nuevo item, llama a este método y nos indica la posición en la lista
      * del elemento a mostrar y nos pasa el holder o view donde mostrar los datos
-     * @param vh
+     * @param holder
      * @param position
      */
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder vh, int position) {
-        NotaViewHolder holder = (NotaViewHolder) vh;
+    public void onBindViewHolder(@NonNull NotaViewHolder holder, int position) {
+
         if (mListaNotas != null) {
             //recuperamos la nota a mostrar
             final Nota nota = mListaNotas.get(position);
