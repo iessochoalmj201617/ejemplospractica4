@@ -10,9 +10,26 @@ import androidx.lifecycle.MutableLiveData;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * ViewModel
+ *https://developer.android.com/topic/libraries/architecture/viewmodel
+ * La clase ViewModel nos permite mantener los datos en las reconstruciones. En el onCreate recuperamos el viewmodel
+ * si venimos de una reconstrucción o creará uno nuevo si es nueva la app. Tenéis un ejemplo en
+ * https://www.youtube.com/watch?v=9Ya3yieB8aI&t=7s,
+ * https://www.youtube.com/watch?v=rOlWmK0wlJo
+ * https://www.youtube.com/watch?v=A2RA36ibC4I
+ * LiveData
+ * https://developer.android.com/topic/libraries/architecture/livedata
+ * Los datos que creamos en el viewmodel no se pierden y se mantienen en memoria
+ * Los datos de tipo LiveData, nos permiten mantener observadores en el UI(la activity) para
+ * detectar cuando hay cambios en los datos.
+ * Mantendremos en esta clase el CRUD(altas,bajas y modificaciones) sobre la lista de Notas y al actualizar
+ * el LiveData se llamará al observer creado en la activity para mostrar los datos en pantalla
+ */
 public class NotasViewModel  extends AndroidViewModel {
     //si queremos que la actividad reciba un aviso cuando se modifican los datos, tenemos que crear
-    //un LiveData
+    //un LiveData(https://developer.android.com/topic/libraries/architecture/livedata)
+    //
     private MutableLiveData<List<Nota>> listaNotasLiveData;
     //esta lista se mantendrá durante la vida de la Actividad
     private List<Nota> listaNotas;
@@ -35,11 +52,11 @@ public class NotasViewModel  extends AndroidViewModel {
     }
 
     /**
-     * nos permite añadir un Nota a la lista
+     * nos permite añadir una Nota a la lista
      * @param tarea
      */
     public void addNota(Nota tarea){
-        //añadimos una Nota a la lista
+        //añadimos una Nota a la lista, si existe(mismo id), la sustituimos
         int i=listaNotas.indexOf(tarea);
         if(i<0)
             listaNotas.add(tarea);
@@ -47,12 +64,11 @@ public class NotasViewModel  extends AndroidViewModel {
             listaNotas.remove(i);
             listaNotas.add(i,tarea);
         }
-
-        //avisamos al LiveData para que active el Observer
+        //avisamos al LiveData para que active el Observer y la actividad muestre los cambios
         listaNotasLiveData.setValue(listaNotas);
     }
     /*
-    por sencillez, eliminamos el primer Nota de la lista
+    Eliminamos la nota por id
      */
     public void delNota(Nota nota){
         if(listaNotas.size()>0){

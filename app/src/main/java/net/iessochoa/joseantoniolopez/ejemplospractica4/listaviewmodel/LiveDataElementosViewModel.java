@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * La clase ViewModel nos permite mantener los datos en las reconstruciones
+ *https://developer.android.com/topic/libraries/architecture/viewmodel
+ * La clase ViewModel nos permite mantener los datos en las reconstruciones. En el onCreate recuperamos el viewmodel
+ * si venimos de una reconstrucción o creará uno nuevo si es nueva la app
  */
 public class LiveDataElementosViewModel extends AndroidViewModel {
     //si queremos que la actividad reciba un aviso cuando se modifican los datos, tenemos que crear
